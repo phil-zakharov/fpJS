@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "ts_watch/",
+    "sourceMap": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "target": "ES6",
+    "allowJs": true,
+    "lib": ["ES2015"],
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"],
+}
