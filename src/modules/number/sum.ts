@@ -1,3 +1,3 @@
-export function sum(a: unknown, b: unknown): unknown {
-  return (a as number) + (b as number);
+export function sum(...values: number[]): unknown {
+  return values.reduce((acc, v) => acc + v, 0);
 }
