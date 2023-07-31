@@ -1,11 +1,9 @@
 export function carry(fn: Function) {
-  function carried(this: unknown, ...args: unknown[]) {
+  function carried(this: unknown, ...args: unknown[]): any {
     if (args.length >= fn.length) {
       return fn.apply(this, args.slice(0, fn.length));
     }
-    return function (this: unknown, ...args2: unknown[]) {
-      return carried(this, args.concat(args2));
-    };
+    return carried.bind(this, ...args);
   }
 
   Object.defineProperty(carried, 'length', {

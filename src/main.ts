@@ -9,26 +9,25 @@ import { slice } from './modules/array/slice';
 import { take } from './modules/array/take';
 import { zip } from './modules/array/zip';
 import { thread } from './modules/async/thread';
+import { carry } from './modules/function/carry';
+import { flip } from './modules/function/flip';
+import { partial } from './modules/function/partial';
+import { pipeFromRight } from './modules/function/pipeFromRight';
+import { immutObject } from './modules/immutable/immutObject';
 import { even } from './modules/number/even';
 import { sum } from './modules/number/sum';
 
-async function main() {
-  console.log('start');
-  let count = 1;
-  const a = thread(() => {
-    console.log(count++);
-    return 'return'
-  }, 1000);
+// const objA = immutObject({ a: 2, c: 3 })
+// console.log(objA.get())
+// const objB = objA.set({ a: 5})
+// console.log(objA.get())
+// console.log(objB.get())
 
-  for await (const el of a) {
-    console.log(el)
-    if (count === 10) {
-      a.throw('bla bla')
-    }
-  }
-  console.log('end');
-}
+const sum_ = (a: number, b: number, c: number) => +a + +b + +c;
 
-main();
-
-const b = create()
+console.log(sum_(1, 2, 3));
+console.log('1', carry(sum_)(1));
+console.log('2', carry(sum_)(1)(2));
+console.log('3', carry(sum_)(1)(2)(3));
+console.log('4', carry(sum_)(1, 2)(3));
+console.log('5', carry(sum_)(1, 2, 3));

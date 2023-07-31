@@ -18,7 +18,7 @@ async function createThread(element, delay) {
 
   for await (const el of a) {
     if (count === 1000) {
-      a.throw('bla bla');
+      a.throw('stop');
     }
   }
 

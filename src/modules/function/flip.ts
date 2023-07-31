@@ -1,6 +1,6 @@
 export function flip(fn: Function) {
-  function reversed(this: unknown, ...args: unknown[]) {
-    return fn.apply(this, args.reverse());
+  function reversed(...args: unknown[]) {
+    return fn(...args.reverse())
   }
 
   Object.defineProperty(reversed, 'length', {
