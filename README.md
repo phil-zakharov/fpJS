@@ -4,10 +4,10 @@
 ```
 await sleep(1000) -> sleep 1 second
 ```
-
+[a relative link](/src/modules/array/at/README.md)
 #### thread
 demo ->  /src/async/threadDemo.html
-```
+```js
 async function createThread(element, delay) {
 
   let count = 1;
@@ -42,7 +42,7 @@ const generator = create(10, 55)
 
 #### at
 ```
-const el = at(generator, index)
+
 ```
 
 #### concat

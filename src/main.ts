@@ -1,4 +1,4 @@
-import { at } from './modules/array/at';
+import { at } from './modules/array/at/at';
 import { concat } from './modules/array/concat';
 import { create } from './modules/array/create';
 import { enumerate } from './modules/array/enumerate';
@@ -23,11 +23,43 @@ import { sum } from './modules/number/sum';
 // console.log(objA.get())
 // console.log(objB.get())
 
-const sum_ = (a: number, b: number, c: number) => +a + +b + +c;
+// const sum_ = (a: number, b: number, c: number) => +a + +b + +c;
 
-console.log(sum_(1, 2, 3));
-console.log('1', carry(sum_)(1));
-console.log('2', carry(sum_)(1)(2));
-console.log('3', carry(sum_)(1)(2)(3));
-console.log('4', carry(sum_)(1, 2)(3));
-console.log('5', carry(sum_)(1, 2, 3));
+// console.log(sum_(1, 2, 3));
+// console.log('1', carry(sum_)(1));
+// console.log('2', carry(sum_)(1)(2));
+// console.log('3', carry(sum_)(1)(2)(3));
+// console.log('4', carry(sum_)(1, 2)(3));
+// console.log('5', carry(sum_)(1, 2, 3));
+
+const iter = create(5, 10)
+
+const a = at([1,2,3,4,5,6], 3)
+const b = at('sdfsdf', 3)
+const c = at(iter, 3)
+
+for (const iterator of a) {
+  console.log('a', iterator)
+}
+
+for (const iterator of b) {
+  console.log('b', iterator)
+}
+
+for (const iterator of c) {
+  console.log('c', iterator)
+}
+
+const obj = {
+  [Symbol.iterator]() {
+    return this
+  },
+  next() {
+    return {
+      value: 1,
+      done: true
+    }
+  }
+}
+
+const d = at(obj, 3)
