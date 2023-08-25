@@ -1,23 +1,10 @@
-### Async
+## [Array](/src/modules/array/README.md)
 
-#### sleep
+function like native array methods in JS, for lazy evaluation, based on iterators
 
-```
-await sleep(1000) -> sleep 1 second
-```
+## [Functions](src/modules/function/README.md)
 
-Array
-
-1. [at](/src/modules/array/at/README.md)
-2. [concat](/src/modules/array/concat/README.md)
-3. [create](/src/modules/array/create/README.md)
-4. [enumerate](/src/modules/array/enumerate/README.md)
-5. [filter](/src/modules/array/filter/README.md)
-6. [map](/src/modules/array/map/README.md)
-7. [reduce](/src/modules/array/reduce/README.md)
-8. [slice](/src/modules/array/slice/README.md)
-9. [take](/src/modules/array/take/README.md)
-10. [zip](/src/modules/array/zip/README.md)
+helpers for change simple function to FP style functions
 
 #### thread
 
