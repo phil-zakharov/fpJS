@@ -1,12 +1,14 @@
 ## [Array](/src/modules/array/README.md)
 
-function like native array methods in JS, for lazy evaluation, based on iterators
+ - function like native array methods in JS, for lazy evaluation, based on iterators
 
 ## [Functions](src/modules/function/README.md)
 
-helpers for change simple function to FP style functions
+ - helpers for change simple function to FP style functions
 
-#### thread
+## Thread
+
+ - function for create non-blocked threads
 
 demo -> /src/async/threadDemo.html
 
