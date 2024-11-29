@@ -1,10 +1,10 @@
-export function immutObject(obj: Object) {
+export function immutObject(obj: object) {
   return {
     get() {
-      return obj;
+      return obj
     },
-    set(arg: Object) {
-      return immutObject({ ...obj, ...arg });
-    },
-  };
+    set(arg: object) {
+      return immutObject({ ...obj, ...arg })
+    }
+  }
 }

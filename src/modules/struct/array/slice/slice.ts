@@ -1,23 +1,21 @@
-export function* slice(
-  g: Generator<unknown, void, unknown>,
-  startIndex: number = 0,
-  endIndex: number = Number.MAX_SAFE_INTEGER,
+import { GeneratorArgument } from '../../../types'
+
+export async function* slice(
+  g: GeneratorArgument,
+  startIndex = 0,
+  endIndex: number = Number.MAX_SAFE_INTEGER
 ) {
-  endIndex = endIndex - startIndex
-
-  const iter = g[Symbol.iterator]();
-
-  let iterRes = iter.next();
-
-  while (startIndex > 0) {
-    iterRes = iter.next();
-    startIndex--;
+  while (startIndex > 1) {
+    g.next()
+    startIndex--
+    endIndex--
   }
+  for await (const chunk of g) {
+    endIndex--
 
-
-  while (endIndex > startIndex && !iterRes.done) {
-    yield iterRes.value;
-    iterRes = iter.next();
-    endIndex--;
+    if (endIndex <= 0) {
+      return
+    }
+    yield chunk
   }
 }

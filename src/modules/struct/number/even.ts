@@ -1,8 +1,7 @@
-import { isNumber } from '../boolean/isNumber';
+import { GeneratorArgument } from '../../types'
 
-export function even(value: unknown) {
-  if (isNumber(value)) {
-    return (value as number) % 2 === 0;
+export async function* even(gen: GeneratorArgument) {
+  for await (const chunk of gen) {
+    yield chunk
   }
-  return false;
 }

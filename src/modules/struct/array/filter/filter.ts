@@ -1,14 +1,12 @@
-export function* filter(
-  g: Generator<unknown, void, unknown>,
-  predicate: (v: unknown) => boolean,
-) {
-  const iter = g[Symbol.iterator]();
+import { GeneratorArgument } from '../../../types'
 
-  for (const el of iter) {
+export async function* filter(
+  g: GeneratorArgument,
+  predicate: (v: unknown) => boolean
+) {
+  for await (const el of g) {
     if (predicate(el)) {
-      yield el;
+      yield el
     }
   }
-
-  return;
 }

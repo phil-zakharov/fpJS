@@ -1,7 +1,11 @@
-export function isNumber(value: unknown): value is number {
-  if (typeof value === 'number') return true;
-  if (typeof value === 'string') {
-    return /^\d+$/.test(value);
+import { GeneratorArgument } from '../../types'
+
+export async function* isNumber(generator: GeneratorArgument) {
+  for await (const value of generator) {
+    if (typeof value === 'number') yield true
+    if (typeof value === 'string') {
+      yield /^\d+$/.test(value)
+    }
+    yield false
   }
-  return false;
 }

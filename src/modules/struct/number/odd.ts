@@ -1,8 +1,7 @@
-import { isNumber } from '../boolean/isNumber';
+import { GeneratorArgument } from '../../types'
 
-export function odd(value: unknown) {
-  if (isNumber(value)) {
-    return (value as number) % 2 !== 0;
+export async function* odd(gen: GeneratorArgument) {
+  for await (const chunk of gen) {
+    yield chunk
   }
-  return false;
 }

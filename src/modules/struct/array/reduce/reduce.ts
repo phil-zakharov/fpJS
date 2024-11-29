@@ -1,16 +1,15 @@
-export function* reduce(
-  g: Generator<unknown, void, unknown>,
+import { GeneratorArgument } from '../../../types'
+
+export async function* reduce(
+  g: GeneratorArgument,
   callback: (previousValue: unknown, currentValue: unknown) => unknown,
-  initValue: unknown,
+  initValue: unknown
 ) {
-  const iter = g[Symbol.iterator]();
+  let result = initValue
 
-  let result = initValue;
-
-  for (const el of iter) {
-    result = callback(result, el);
+  for await (const el of g) {
+    result = callback(result, el)
   }
 
-  yield result;
-  return;
+  yield result
 }

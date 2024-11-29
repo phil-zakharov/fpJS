@@ -1,11 +1,11 @@
-export async function* take(g: Generator<unknown, void, unknown>, count: number) {
-  const iter = g[Symbol.iterator]();
-  for (const el of iter) {
-    if (count > 0) {
-      count--;
-      yield el;
-    } else {
-      return;
+import { GeneratorArgument } from '../../../types'
+
+export async function* take(g: GeneratorArgument, count: number) {
+  for await (const chunk of g) {
+    if (count-- === 0) {
+      return
     }
+
+    yield chunk
   }
 }

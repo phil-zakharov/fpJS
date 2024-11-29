@@ -1,7 +1,9 @@
-type Arg = Generator | AsyncGenerator
+import { GeneratorArgument } from '../../../types'
 
-export async function* concat(...g: Arg[]) {
-  for (let i = 0; i < g.length; i++) {
-    yield* g[i]
+export async function* concat(...generators: GeneratorArgument[]) {
+  for (const generator of generators) {
+    for await (const chunk of generator) {
+      yield chunk
+    }
   }
 }

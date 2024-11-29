@@ -1,11 +1,10 @@
-export function* map(
-  g: Generator<unknown, void, unknown>,
-  callback: (value: unknown) => unknown,
-) {
-  const iter = g[Symbol.iterator]();
-  for (const el of iter) {
-    yield callback(el);
-  }
+import { GeneratorArgument } from '../../../types'
 
-  return;
+export async function* map(
+  g: GeneratorArgument,
+  callback: (value: unknown) => unknown
+) {
+  for await (const el of g) {
+    yield callback(el)
+  }
 }

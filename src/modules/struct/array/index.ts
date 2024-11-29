@@ -1,6 +1,5 @@
 export * from './at'
 export * from './concat'
-export * from './create'
 export * from './enumerate'
 export * from './filter'
 export * from './map'

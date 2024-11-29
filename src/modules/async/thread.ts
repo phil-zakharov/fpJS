@@ -1,12 +1,12 @@
-import { sleep } from './sleep';
+import { sleep } from './sleep'
 
 export async function* thread(callback: Function, delay: number) {
   while (true) {
     try {
-      await sleep(delay);
-      yield callback();
+      await sleep(delay)
+      yield callback()
     } catch (error) {
-      return;
+      return
     }
   }
 }

@@ -1,6 +1,8 @@
-export function* isNull(arg: unknown, strict: boolean = true) {
-  if (strict) {
-    return arg === null;
+import { GeneratorArgument } from '../../types'
+
+export async function* isNull(generator: GeneratorArgument) {
+  for await (const chunk of generator) {
+    if (chunk == null) yield true
+    yield false
   }
-  return arg == null;
 }

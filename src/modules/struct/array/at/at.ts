@@ -1,13 +1,9 @@
-export async function* at<T = unknown>(g: Iterable<T>, findIndex: number) {
-  let index = 0;
+import { GeneratorArgument } from '../../../types'
 
+export async function* at(g: GeneratorArgument, findIndex: number) {
   for await (const el of g) {
-    if (index === findIndex) {
-      yield el;
-      break;
+    if (findIndex-- === 0) {
+      yield el
     }
-    index++;
   }
-  
-  return;
 }
