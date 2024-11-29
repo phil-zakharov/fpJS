@@ -1,4 +1,4 @@
-export function isNull(arg: unknown, strict: boolean = true) {
+export function* isNull(arg: unknown, strict: boolean = true) {
   if (strict) {
     return arg === null;
   }
