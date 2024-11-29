@@ -1,0 +1,1 @@
+export type GeneratorArgument<T = unknown, TReturn = any, TNext = any> = Generator<T, TReturn, TNext> | AsyncGenerator<T, TReturn, TNext>
