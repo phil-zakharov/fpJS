@@ -1,4 +1,4 @@
-import { wait } from './modules/async'
+import { wait } from './modules/async/wait'
 import { curry } from './modules/function/carry/carry'
 import { concat, enumerate, slice, take } from './modules/struct/array'
 import { random } from './modules/struct/number'
@@ -20,13 +20,17 @@ import { GeneratorArgument } from './modules/types'
 // )
 
 async function main() {
-  const waiter = wait(1000)
+  // const waiter = wait(1000)
 
-  for await (const chunk of enumerate(
-    concat(slice(take(create(1), 5), 3, 5), slice(take(create(1), 15), 7, 10))
-  )) {
-    console.log(chunk)
-    await waiter.next()
+  // for await (const chunk of enumerate(
+  //   concat(slice(take(create(1), 5), 3, 5), slice(take(create(1), 15), 7, 10))
+  // )) {
+  //   console.log(chunk)
+  //   await waiter.next()
+  // }
+
+  for await (const char of create('a', 'f')) {
+    console.log(char)
   }
 }
 
